@@ -1,0 +1,33 @@
+
+{% extends "frota/base.html" %} 
+{% load static %}
+{% block conteudo %}
+
+
+        <section class="vh-100 gradient-custom">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center">
+                    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                            <div class="card-body p-5 text-center">
+                                
+                      
+                                    <img src="{% static 'imagens/gmg_logo.png' %}" alt="Teste" width=242 height=221 />
+                                    <div class="container py-5 h-100">
+                                    <div class="card-img">
+                                    <h5 class="card-title">Gerenciamento de Frota do GMG</h5>
+                                    <p class="card-text">Acesso somente para pessoas previamente autorizadas.</p>
+                                    <button onclick="location.href= '{% url 'login' %}'"  data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5" type="submit"> Login</button> 
+                                        <div class="container py-5 h-100">
+                                        <p class="card-text">PMMG</p>
+                                        </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+{% endblock %} 
+
+       

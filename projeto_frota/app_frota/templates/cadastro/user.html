@@ -1,0 +1,122 @@
+{% extends "frota/base.html" %} {% block conteudo %}
+
+<section class="vh-100 gradient-custom">
+  <div class="container py-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem">
+          <div class="card-body p-5 text-center">
+            <div class="mb-md-5 mt-md-4 pb-5">
+              <h3>Cadastro de Usuário</h3>
+              <p>GMG Frota .</p>
+              <form action="{%  url 'lista_user' %}" method="post">
+                {% csrf_token %}
+
+                <div class="col-md-12">
+                  <input
+                    class="form-control"
+                    type="number"
+                    name="numero"
+                    placeholder="Número de PM/BM"
+                    required
+                  />
+                  <div class="valid-feedback">Número válido.</div>
+                  <div class="invalid-feedback">
+                    Número não pode ser em branco!
+                  </div>
+                </div>
+                <p></p>
+                <div class="col-md-12">
+                  <select class="form-select mt-3" name="posgra" required>
+                    <option selected disabled value="">Posto/Graduação</option>
+                    <option value="SD">Soldado</option>
+                    <option value="CB">Cabo</option>
+                    <option value="1° SGT">1° Sargento</option>
+                    <option value="2° TEN">2° Tenente</option>
+                  </select>
+                  <div class="valid-feedback">
+                    Posto ou Graduação selecionado.
+                  </div>
+                  <div class="invalid-feedback">
+                    Escolha posto ou graduação!
+                  </div>
+                </div>
+                <p></p>
+                <div class="col-md-12">
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="nome"
+                    placeholder="Nome completo"
+                    required
+                  />
+                  <div class="valid-feedback">Nome válido.</div>
+                  <div class="invalid-feedback">
+                    Nome não pode ser em branco!
+                  </div>
+                </div>
+                <p></p>
+                <div class="col-md-12">
+                  <select class="form-select mt-3" name="cnhcat" required>
+                    <option selected disabled value="">CNH categoria</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                  </select>
+                  <div class="valid-feedback">CNH catagoria selecionado.</div>
+                  <div class="invalid-feedback">Escolha categoria de CNH!</div>
+                </div>
+                <p></p>
+                <div class="col-md-12">
+                  <select class="form-select mt-3" name="funcao" required>
+                    <option selected disabled value="">Função</option>
+                    <option value="MOTORISTA">Motorista</option>
+                    <option value="AUXILIAR">Auxiliar</option>
+                    <option value="ANALISTA">Analista</option>
+                    <option value="ADMINISTRADOR">Administrador</option>
+                  </select>
+                  <div class="valid-feedback">Função selecionada.</div>
+                  <div class="invalid-feedback">Escolha cuma função!</div>
+                </div>
+                <p></p>
+                <div class="col-md-12">
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="senha"
+                    placeholder="Senha"
+                    required
+                  />
+                  <div class="valid-feedback">Senha válida.</div>
+                  <div class="invalid-feedback">
+                    Senha não pode ser em branco!
+                  </div>
+                </div>
+                <p></p>
+                <button
+                  data-mdb-button-init
+                  data-mdb-ripple-init
+                  class="btn btn-outline-light btn-lg px-5"
+                  type="submit"
+                >
+                  Cadastrar
+                </button>
+                <br />
+                <br />
+                <br />
+                <br />
+                <a href="/menu_cadastro/" class="text-white fw-bold">Voltar</a>
+                <br />
+                <br />
+                <p class="bg-danger">{{ msg_erro }}</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

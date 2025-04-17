@@ -1,0 +1,26 @@
+{% extends "frota/base.html" %} 
+{% block conteudo %}
+
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="card text-center" style="width: 600px;">
+                <div class="card-header h5 text-white bg-dark">Solicitação de Cadastro</div>
+                <div class="card-body px-5">
+                    <p class="card-text py-2">
+                        Coloque o seu número PM/BM e será enviado via Intranet maiores instruções.
+                    <div data-mdb-input-init class="form-outline">
+                        <input type="email" id="typeEmail" class="form-control my-3" />
+                        <label class="form-label" for="typeEmail">Número PM/BM</label>
+                    </div>
+                    <a href="#" data-mdb-ripple-init class="btn btn-dark w-100 ">Enviar</a>
+                    <div class="d-flex justify-content-between mt-4">
+                        <a class="text-dark fw-bold" href="/login/">Login</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </div>
+</section>
+
+{% endblock  %} 

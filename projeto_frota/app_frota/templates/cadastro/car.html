@@ -1,0 +1,122 @@
+{% extends "frota/base.html" %} {% block conteudo %}
+
+<section class="vh-100 gradient-custom">
+  <div class="container py-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem">
+          <div class="card-body p-5 text-center">
+            <div class="mb-md-5 mt-md-4 pb-5">
+              <h3>Cadastro de Veículo</h3>
+              <p>GMG Frota .</p>
+              <form action="{%  url 'lista_car' %}" method="post">
+                {% csrf_token %}
+
+                <div class="col-md-12">
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="placa"
+                    placeholder="Placa do Veículo"
+                    required
+                    maxlength="7"
+                  />
+                  <div class="valid-feedback">Placa válida.</div>
+                  <div class="invalid-feedback">
+                    Placa não pode ser em branco!
+                  </div>
+                </div>
+                <p></p>
+                <div class="col-md-12">
+                  <select class="form-select mt-3" name="marca" required>
+                    <option selected disabled value="">Marca</option>
+                    <option value="FIAT">Fiat</option>
+                    <option value="VOLKSWAGEN">Volkswagen</option>
+                    <option value="TOYOTA">Toyota</option>
+                    <option value="HONDA">Honda</option>
+                    <option value="JEEP">Jeep</option>
+                  </select>
+                  <div class="valid-feedback">Marca selecionado.</div>
+                  <div class="invalid-feedback">Escolha uma marca!</div>
+                </div>
+                <p></p>
+                <div class="col-md-12">
+                  <select class="form-select mt-3" name="modelo" required>
+                    <option selected disabled value="">Modelo</option>
+                    <option value="COROLLA">Corolla</option>
+                    <option value="CITY 1.8">City 1.8</option>
+                    <option value="GOL">Gol</option>
+                    <option value="CRONOS">Cronos</option>
+                    <option value="COMMANDER">Commander</option>
+                  </select>
+                  <div class="valid-feedback">Modelo selecionado.</div>
+                  <div class="invalid-feedback">Escolha um modelo!</div>
+                </div>
+                <p></p>
+                <div class="col-md-12">
+                  <select class="form-select mt-3" name="cor" required>
+                    <option selected disabled value="">Cor</option>
+                    <option value="BRANCO">Branco</option>
+                    <option value="PRATA">Prata</option>
+                    <option value="PRETO">Preto</option>
+                    <option value="PLOTADO">Plotado</option>
+                  </select>
+                  <div class="valid-feedback">Cor selecionada.</div>
+                  <div class="invalid-feedback">Escolha uma cor!</div>
+                </div>
+                <p></p>
+                <div class="col-md-12">
+                  <select class="form-select mt-3" name="combustivel" required>
+                    <option selected disabled value="">Combustível</option>
+                    <option value="GASOLINA">Gasolina</option>
+                    <option value="ALCOOL">Alcool</option>
+                    <option value="HVO">HVO</option>
+                    <option value="DIESEL S10">Diesel S10</option>
+                    <option value="ALCOOL\GASOLINA">Alcool\Gasolina</option>
+                  </select>
+                  <div class="valid-feedback">Combustível selecionado.</div>
+                  <div class="invalid-feedback">
+                    Escolha um tipo de combustível!
+                  </div>
+                  <p></p>
+                  <div class="col-md-12">
+                    <input
+                      class="form-control"
+                      type="date"
+                      name="data"
+                      value="01/02/2025"
+                      required
+                    />
+                    <div class="valid-feedback">Data válida.</div>
+                    <div class="invalid-feedback">
+                      Data não pode ser em branco!
+                    </div>
+                  </div>
+                </div>
+                <p></p>
+                <button
+                  data-mdb-button-init
+                  data-mdb-ripple-init
+                  class="btn btn-outline-light btn-lg px-5"
+                  type="submit"
+                >
+                  Cadastrar
+                </button>
+                <br />
+                <br />
+                <br />
+                <br />
+                <a href="/menu_cadastro/" class="text-white fw-bold">Voltar</a>
+                <br />
+                <br />
+                <p class="bg-danger">{{ msg_erro }}</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

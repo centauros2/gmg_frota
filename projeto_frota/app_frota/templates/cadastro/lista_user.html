@@ -1,0 +1,48 @@
+{% extends "frota/base.html" %} 
+{% block conteudo %}
+
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 ">
+      <div class="card bg-dark text-white" style="border-radius: 1rem;">
+        <div class="card-body p-5 text-center">
+              
+                <h3>Usuário Cadastrados</h3>
+                    <p>GMG Frota .</p>
+                      
+                    <table class="table table-striped table-dark">
+                      <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>NUMERO</th>
+                            <th>POST/GRAD</th>
+                            <th>NOME</th>
+                            <th>CNH/CAT</th>
+                            <th>FUNCAO</th>
+                            <th>SENHA</th>
+                      </thead>
+                      <tbody>
+                        </tr>
+                        {% for usuario in usuarios %}
+                        <tr>
+                            <td>{{usuario.id_user}} </td>
+                            <td>{{usuario.numero}}</td>
+                            <td>{{usuario.posgra}}</td>
+                            <td>{{usuario.nome}}</td>
+                            <td>{{usuario.cnhcat}}</td>
+                            <td>{{usuario.funcao}}</td>
+                            <td>{{usuario.senha}}</td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                    <div class="d-flex justify-content-between mt-4">
+                      <a class="text-white fw-bold" href="/cadastro_user/">Cadastro</a>
+                   </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+{% endblock %} 

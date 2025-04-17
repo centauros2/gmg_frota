@@ -1,0 +1,109 @@
+dirpython#criar ambiente virtuar
+python -m venv projeto
+
+#iniciar ambiente virtual
+ .\gmg_teste\Scripts\activate.bat  
+ .\env\Scripts\activate
+
+#instalando Django
+pip install django
+
+#criando projeto
+django-admin startproject projeto_frota
+
+#criando app
+django-admin startapp app_frota
+
+#cadastrar app no projeto
+#projeto settings >> INSTALLED_APPS = [ "app_tal"
+
+#rodar projeto django
+python .\manage.py runserver
+
+#migrar dados
+python .\manage.py makemigrations
+#depois
+python .\manage.py migrate
+
+# teste 
+pythom manage.py shell
+
+
+#para chegar uma página HTML
+#01 ROTA (URLS.PY) EX: CAMINHOS >> facebook.com\dev_aprender
+#02 VIEWS.PY  >> oque exibir
+#03 HTML (em si, estrutura em código)
+ 
+######################
+    if request.method == "POST":
+        user_nr = request.POST['user_nr']
+        passoword = request.POST['passoword']
+        user = authenticate(request, user_nr=user_nr, passoword=passoword)
+        if user is not None:
+            login(request, user)
+            return render(request, "frota/menu_opcoes")
+        else:
+            print("NLOG")
+            login_form = AuthenticationForm()
+    login_form = AuthenticationForm( 
+
+
+{'id_user': 43, 'numero': 1078914, 'posgra': '1SGT', 'nome': 'WALTER SANTOS', 'cnhcat': 'B', 'funcao': 'ADMINISTRADOR', 'senha': '1234'}
+
+
+
+def menu_opcoes(request):
+    if request.method == "GET":
+        return render(request, "frota/menu_opcoes.html")
+    else:
+        user_nr = request.POST.get('user_nr')
+        password = request.POST.get('password')
+        user = Usuario.objects.filter(numero=user_nr).values_list()
+        if user:
+            if user[0][6] == password:
+
+                template = loader.get_template('frota/menu_opcoes.html')
+                context = {
+                    'firstname': 'Linus',
+                }
+                return HttpResponse(template.render(context, request))
+
+                # return render(request, "frota/menu_opcoes.html", texto)
+            else:
+                template = loader.get_template("frota/login.html")
+                context = {
+                    'erro': 'Número ou senha errados!',
+                }
+                return HttpResponse(template.render(context, request))
+        else:
+            template = loader.get_template("frota/login.html")
+            context = {
+                'erro': 'Número ou senha errados!',
+            }
+            return HttpResponse(template.render(context, request))
+
+
+
+##############################date############################
+<div class="input-append date" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+  <input class="span2" size="16" type="text" value="12-02-2012">
+  <span class="add-on"><i class="icon-th"></i></span>
+</div>
+
+<input type="date" value="2017-06-01" />
+
+
+##################################### Q ##########################
+Poll.objects.get(
+    Q(pub_date=date(2005, 5, 2)) | Q(pub_date=date(2005, 5, 6)),
+    question__startswith="Who",
+)
+
+
+######################### model #########
+   def clean_nome(self):
+        nome =self.clean_fields['nome']
+        if len(nome) > 5:
+            raise ValueError("O nome tem que ser completo")
+        else:
+            return nome.upper()
