@@ -1,3 +1,10 @@
+#pythonanyware
+pa_autoconfigure_django.py https://github.com/centauros2/gmg_frota.git --python=3.13 --nuke
+
+ https://centauros02.pythonanywhere.com
+
+#############################
+
 dirpython#criar ambiente virtuar
 python -m venv projeto
 
