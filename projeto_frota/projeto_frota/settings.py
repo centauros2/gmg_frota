@@ -16,7 +16,11 @@ import os.path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = Path(__file__).resolve().parent.parent
-BASE_DIR = Path(__file__).resolve().parent.parent
+# BASE_DIR = Path(__file__).resolve().parent.parent
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
 
 
 # Quick-start development settings - unsuitable for production
@@ -34,7 +38,7 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 ##
-STATICFILES_DIRS = [BASE_DIR / "app_frota/static"]
+# STATICFILES_DIRS = [BASE_DIR / "app_frota/static"]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -82,7 +86,7 @@ WSGI_APPLICATION = 'projeto_frota.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -112,12 +116,10 @@ AUTH_PASSWORD_VALIDATORS = [
 DATE_INPUT_FORMATS = ('%d-%m-%Y')  # Here
 
 LANGUAGE_CODE = 'pt-br'
-
-TIME_ZONE = 'UTC'
-
+TIME_ZONE = 'America/Sao_Paulo'
 USE_I18N = True
-
-USE_L10N = False
+USE_L10N = True
+USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
@@ -129,13 +131,19 @@ if not DEBUG:
 
 
 # STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATIC_ROOT = BASE_DIR / '/staticfiles/'
-STATICFILES_DIRS = [
-    # os.path.join(BASE_DIR, 'static')
-    BASE_DIR/'static',
-    '/home/centauros02/centauros02.pythonanywhere.com/projeto_frota/static',
-]
-MEDIA_ROOT = BASE_DIR/'media'
+# STATIC_ROOT = BASE_DIR / '/staticfiles/'
+# STATICFILES_DIRS = [
+# os.path.join(BASE_DIR, 'static')
+# BASE_DIR/'static',
+# '/home/centauros02/centauros02.pythonanywhere.com/projeto_frota/static',
+# ]
+# MEDIA_ROOT = BASE_DIR/'media'
+# MEDIA_URL = '/media/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = '/static/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 
