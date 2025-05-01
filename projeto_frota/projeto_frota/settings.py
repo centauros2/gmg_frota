@@ -133,6 +133,7 @@ STATIC_ROOT = BASE_DIR / '/staticfiles/'
 STATICFILES_DIRS = [
     # os.path.join(BASE_DIR, 'static')
     BASE_DIR/'static',
+    '/home/centauros02/centauros02.pythonanywhere.com/projeto_frota/static',
 ]
 MEDIA_ROOT = BASE_DIR/'media'
 MEDIA_URL = '/media/'
