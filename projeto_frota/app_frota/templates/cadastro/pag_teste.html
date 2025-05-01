@@ -1,0 +1,35 @@
+{% extends "frota/base.html" %} {% block conteudo %}
+
+<h1>{{total}}</h1>
+<h1>{{empenhos}}</h1>
+<h1>{{media}}</h1>
+
+
+<table class="table table-striped table-dark">
+    <thead>
+      <tr>
+          <th>Placa</th>
+          <th>Marca</th>
+          <th>Empenhos</th>
+          <th>Média</th>
+    </thead>
+    <tbody>
+      </tr>
+      {% for empenho in empenhos %}
+      <tr>
+          <td>{{empenho.posgra}}</td>
+          <td>{{empenho.nome}}</td>
+          <td>{{empenho.Empenhos}}</td>
+          {% if media.Media < empenho.Empenhos %} 
+            <td style='color:green'> ACIMA </td>
+          {% elif media.Media > empenho.Empenhos %}
+            <td style='color:red'> ABAIXO </td>
+          {% else %}
+          <td style='color:yellow'> IGUAL </td>
+          {% endif %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}

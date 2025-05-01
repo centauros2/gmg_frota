@@ -1,0 +1,60 @@
+{% extends "frota/base.html" %} 
+{% block conteudo %}
+
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 ">
+      <div class="card bg-dark text-white" style="border-radius: 1rem;">
+        <div class="card-body p-5 text-center">
+              
+                <h3>Relatórios de Empenho</h3>
+                <p class="text-white-50 mb-5">{{logado}}</p>
+                <br>
+                <h1>Total de empenhos: {{total}}</h1>
+                <br>
+                      
+                <table class="table table-striped table-dark">
+                  <thead>
+                    <tr>
+                        <th>Nr Emp.</th>
+                        <th>Usuário</th>
+                        <th>Placa</th>
+                        <th>Modelo</th>
+                        <th>Data</th>
+                  </thead>
+                  <tbody>
+                    </tr>
+                    {% for empenho in empenhos %}
+                    <tr>
+                        <td>{{empenho.id_empenho}}</td>
+                        <td>{{empenho.numero}}</td>
+                        <td>{{empenho.placa}}</td>
+                        <td>{{empenho.modelo}}</td>
+                        <td>{{empenho.data_ini}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+
+                <div>
+                  <form action="{%  url 'pesquisa_empenho' %}" method="post">
+                  {% csrf_token %}
+                    <button
+                      data-mdb-button-init
+                      data-mdb-ripple-init
+                      class="btn btn-outline-light btn-lg px-5"
+                      type="submit"
+                      name="ir_para"
+                      value="{{logado}}"
+                    >
+                    Voltar
+                    </button>
+                  </form>
+                </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+{% endblock %} 

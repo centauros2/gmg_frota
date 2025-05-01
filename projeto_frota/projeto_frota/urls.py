@@ -26,6 +26,17 @@ urlpatterns = [
     path('opcao_relatorios/', views.opcao_relatorios, name='opcao_relatorios'),
     path('relatorio_user/', views.relatorio_user, name='relatorio_user'),
     path('relatorio_car/', views.relatorio_car, name='relatorio_car'),
+    path('relatorio_empenho/', views.relatorio_empenho, name='relatorio_empenho'),
     path('locacao/', views.locacao, name='locacao'),
-
+    path('empenho/', views.empenho, name='empenho'),
+    path('volta_menu_opcoes/', views.volta_menu_opcoes, name='volta_menu_opcoes'),
+    path('volta_locacao/', views.volta_locacao, name='volta_locacao'),
+    path('volta_menu_cadastro/', views.volta_menu_cadastro,
+         name='volta_menu_cadastro'),
+    path('pag_teste/', views.pag_teste, name='pag_teste'),
+    path('pesquisa_empenho/', views.pesquisa_empenho, name='pesquisa_empenho'), 
+    path('lista_count_motorista/', views.lista_count_motorista, name='lista_count_motorista'),
+    path('relatorio_motorista/', views.relatorio_motorista, name='relatorio_motorista'),
+    path('relatorio_car_empenho/', views.relatorio_car_empenho, name='relatorio_car_empenho'),
+    
 ]

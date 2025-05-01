@@ -8,7 +8,8 @@
           <div class="card-body p-5 text-center">
             <div class="mb-md-5 mt-md-4 pb-5">
               <h3>Cadastro de Veículo</h3>
-              <p>GMG Frota .</p>
+              <p class="text-white-50 mb-5">{{logado}}</p>
+
               <form action="{%  url 'lista_car' %}" method="post">
                 {% csrf_token %}
 
@@ -71,26 +72,12 @@
                     <option value="GASOLINA">Gasolina</option>
                     <option value="ALCOOL">Alcool</option>
                     <option value="HVO">HVO</option>
-                    <option value="DIESEL S10">Diesel S10</option>
-                    <option value="ALCOOL\GASOLINA">Alcool\Gasolina</option>
+                    <option value="DIES/S10">Diesel S10</option>
+                    <option value="ALCO/GAS">Alcool/Gasolina</option>
                   </select>
                   <div class="valid-feedback">Combustível selecionado.</div>
                   <div class="invalid-feedback">
                     Escolha um tipo de combustível!
-                  </div>
-                  <p></p>
-                  <div class="col-md-12">
-                    <input
-                      class="form-control"
-                      type="date"
-                      name="data"
-                      value="01/02/2025"
-                      required
-                    />
-                    <div class="valid-feedback">Data válida.</div>
-                    <div class="invalid-feedback">
-                      Data não pode ser em branco!
-                    </div>
                   </div>
                 </div>
                 <p></p>
@@ -99,6 +86,8 @@
                   data-mdb-ripple-init
                   class="btn btn-outline-light btn-lg px-5"
                   type="submit"
+                  name="ir_para"
+                  value="{{logado}}"
                 >
                   Cadastrar
                 </button>
@@ -106,7 +95,20 @@
                 <br />
                 <br />
                 <br />
-                <a href="/menu_cadastro/" class="text-white fw-bold">Voltar</a>
+              </form>
+
+              <form action="{%  url 'volta_menu_cadastro' %}" method="post">
+                {% csrf_token %}
+                <button
+                  data-mdb-button-init
+                  data-mdb-ripple-init
+                  class="btn btn-outline-light btn-lg px-5"
+                  type="submit"
+                  name="ir_para"
+                  value="{{logado}}"
+                >
+                  Voltar
+                </button>
                 <br />
                 <br />
                 <p class="bg-danger">{{ msg_erro }}</p>

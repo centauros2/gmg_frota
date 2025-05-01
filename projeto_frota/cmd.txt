@@ -33,6 +33,10 @@ pythom manage.py shell
 #01 ROTA (URLS.PY) EX: CAMINHOS >> facebook.com\dev_aprender
 #02 VIEWS.PY  >> oque exibir
 #03 HTML (em si, estrutura em código)
+
+#pesquisar no prompt#
+python manage.py shell 
+from app_frota.models import Empenho  
  
 ######################
     if request.method == "POST":
@@ -110,7 +114,38 @@ Poll.objects.get(
 
 
 
+empenho
+
+    empenho = request.POST.get('empenho')
+    logado = request.POST.get('empenho')
+    template = loader.get_template('cadastro/empenho.html')
+    context = {
+        'empenho': empenho, 'logado': logado,
+    }
+    return HttpResponse(template.render(context, request))
+
 ##################### git #####################
 https://github.com/centauros2/gmg_frota.git
 
 pa_autoconfigure_django.py https://github.com/centauros2/gmg_frota.git --python=3.13.3
+
+#######################################
+empenho
+value="{{localizado.placa}}:{{logado}}:{{data}}" 
+
+car.html
+                    <div class="valid-feedback">Data válida.</div>
+                    <div class="invalid-feedback">
+                      Data não pode ser em branco!
+                    </div>
+
+relatorio_empenho >> cadastro/relatorio_empenho.html
+
+user = Usuario.objects.filter(numero=logado).values_list()
+    nome = user[0][3]
+    posgra = user[0][2]
+    placa = placa
+    data_ini = data
+    veiculo = Veiculo.objects.filter(placa=placa).values_list()
+    modelo = veiculo[0][3]
+    novo_empenho = Empenho()

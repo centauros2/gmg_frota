@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime
+from django.db.models import Q
 
 
 class Usuario(models.Model):
@@ -36,4 +37,21 @@ class Veiculo(models.Model):
 
     def clean_placa(self):
         nome = self.clean_fields['placa']
+        return nome.upper()
+
+
+class Empenho(models.Model):
+    id_empenho = models.AutoField(primary_key=True)
+    numero = models.IntegerField()
+    posgra = models.TextField(max_length=100)
+    nome = models.TextField(max_length=250)
+    placa = models.TextField(max_length=10)
+    modelo = models.TextField(max_length=50)
+    data_ini = models.DateField(default=datetime.now)
+
+    def __str__(self) -> str:
+        return self.placa
+
+    def clean_placa(self):
+        nome = self.clean_fields['data_ini']
         return nome.upper()
