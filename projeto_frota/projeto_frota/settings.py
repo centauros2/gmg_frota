@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-pdd+c+9-qb@qh$*zzs(ljr+sl4h!0#(*0p6az8350_=+p8ruck'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -128,7 +128,8 @@ if not DEBUG:
     STATIC_ROOT = '/app_frota/static/'
 
 
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+# STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = BASE_DIR / '/static/'
 STATICFILES_DIRS = [
     # os.path.join(BASE_DIR, 'static')
     BASE_DIR/'static',
