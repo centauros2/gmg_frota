@@ -46,6 +46,16 @@ python manage.py shell
 from app_frota.models import Empenho  
 
 https://youtu.be/mBqfY_TX_8o <<<IA
+
+################################### github ################################### 
+>>> Bash <<<
+#git clone https://github.com/centauros2/gmg_frota.git
+pa_autoconfigure_django.py https://github.com/centauros2/gmg_frota.git --python=3.13 --nuke
+
+
+
+
+
 ################################### Value ################################### 
 # de uma list parqa html
 <td valign="middle"> {{resultado.0}} - {{resultado.1}} - {{resultado.2}}- {{resultado.3}} </td> 
@@ -58,7 +68,9 @@ Entry.objects.all()[:5]
  <input type="hidden" name="pessoa" value="nome" />
 
 
-
+ <td>
+  <pre>{{ resultado.0}}</pre> # número elevado
+ </td>
 
 
 def agendas(request):
