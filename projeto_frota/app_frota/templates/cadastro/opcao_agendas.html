@@ -7,10 +7,45 @@
         <div class="card bg-dark text-white" style="border-radius: 1rem">
           <div class="card-body p-5 text-center">
             <div class="mb-md-5 mt-md-4 pb-5">
-              <h2 class="fw-bold mb-2 text-uppercase">Menu de Opções</h2>
+              <h2 class="fw-bold mb-2 text-uppercase">Agendas</h2>
               <p class="text-white-50 mb-5">{{logado}}</p>
 
-              <form action="{%  url 'menu_cadastro' %}" method="post">
+              <form action="{%  url 'agendas' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="agenda" value="demandante" />
+                <button
+                  data-mdb-button-init
+                  data-mdb-ripple-init
+                  class="btn btn-outline-light btn-lg px-5"
+                  type="submit"
+                  name="ir_para"
+                  value="{{logado}}"
+                >
+                  Demandante
+                </button>
+              </form>
+              <br />
+              <br />
+
+              <form action="{%  url 'agendas' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="agenda" value="pessoas" />
+                <button
+                  data-mdb-button-init
+                  data-mdb-ripple-init
+                  class="btn btn-outline-light btn-lg px-5"
+                  type="submit"
+                  name="ir_para"
+                  value="{{logado}}"
+                >
+                  Pessoas
+                </button>
+              </form>
+              <br />
+              <br />
+
+              <form action="{%  url 'agendas' %}" method="post">
+                <input type="hidden" name="agenda" value="prestadores" />
                 {% csrf_token %}
                 <button
                   data-mdb-button-init
@@ -20,13 +55,14 @@
                   name="ir_para"
                   value="{{logado}}"
                 >
-                  Cadastros
+                  Prestadores
                 </button>
               </form>
               <br />
               <br />
 
-              <form action="{%  url 'locacao' %}" method="post">
+              <form action="{%  url 'agendas' %}" method="post">
+                <input type="hidden" name="agenda" value="veiculos" />
                 {% csrf_token %}
                 <button
                   data-mdb-button-init
@@ -36,13 +72,13 @@
                   name="ir_para"
                   value="{{logado}}"
                 >
-                  Empenhos
+                  Veículos
                 </button>
               </form>
               <br />
               <br />
 
-              <form action="{%  url 'opcao_relatorios' %}" method="post">
+              <form action="{%  url 'volta_menu_opcoes' %}" method="post">
                 {% csrf_token %}
                 <button
                   data-mdb-button-init
@@ -52,30 +88,11 @@
                   name="ir_para"
                   value="{{logado}}"
                 >
-                  Relatórios
+                  Voltar
                 </button>
               </form>
               <br />
               <br />
-
-              <form action="{%  url 'opcao_agendas' %}" method="post">
-                {% csrf_token %}
-                <button
-                  data-mdb-button-init
-                  data-mdb-ripple-init
-                  class="btn btn-outline-light btn-lg px-5"
-                  type="submit"
-                  name="ir_para"
-                  value="{{logado}}"
-                >
-                  Agendas
-                </button>
-              </form>
-              <br />
-              <br />
-
-              <br />
-              <a href="/login/" class="text-white fw-bold">Login</a>
             </div>
           </div>
         </div>

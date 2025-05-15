@@ -209,21 +209,15 @@ def resultado_agenda(request):
     print('@@@@', id_nr)
     if request.method != "POST":
         return render(request, "cadastro/agendas.html", logado)
-    demandantes = list(Agenda.objects.filter(id_agenda=id_nr).values_list(
-        'id_agenda', 'demandante_orgao', 'demandante_pessoa', 'data_agenda', 'obs_agenda', 'local_agenda'))
-    pessoas = list(Acesso_Pessoa.objects.filter(
-        id_pessoa=id_nr).values_list('nome', 'pessoa_ssp', 'pessoa_cpf'))
-    prestadores = list(Acesso_Prestador.objects.filter(
-        id_prestador=id_nr).values_list('nome', 'pessoa_ssp', 'pessoa_cpf'))
-    veiculos = list(Acesso_Veiculo.objects.filter(
-        id_veiculo=id_nr).values_list('placa', 'marca', 'modelo', 'cor'))
+
+    demandantes = Agenda.objects.filter(id_agenda=id_nr)
     pesquisa = {
         'logado': str(logado),
         'demandantes': demandantes,
-        'pessoas': pessoas,
-        'prestadores': prestadores,
     }
-    return render(request, "cadastro/resultado_agenda.html", pesquisa)
+    # demandantes = list(Agenda.objects.filter(id_agenda=id_nr).values_list(
+    #   'id_agenda', 'demandante_orgao', 'demandante_pessoa', 'data_agenda', 'obs_agenda', 'local_agenda'))
+    return render(request, "cadastro/pag_teste.html", pesquisa)
 
 
 def relatorio_user(request):

@@ -1,0 +1,151 @@
+{% extends "frota/base.html" %} 
+{% block conteudo %}
+
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 ">
+      <div class="card bg-dark text-white" style="border-radius: 1rem;">
+        <div class="card-body p-5 text-center">
+              <div>  
+                <h3>Relatórios de Agenda</h3>
+                <p class="text-white-50 mb-5">{{logado}}</p>
+                      
+                    <table class="table table-striped table-dark">
+                      <thead>
+                        <tr>
+                          <th>Número</th>
+                          <th>Orgão</th>
+                          <th>Demandante</th>
+                          <th>Data</th>
+                          <th>Local</th>
+                          <th>OBS</th>
+                      </thead>
+                      <tbody>
+                        </tr>
+                        {% for demandante in demandantes %}
+                        <tr>
+                          <td>{{demandante.0}} </td>
+                          <td>{{demandante.1}}</td>
+                          <td>{{demandante.2}}</td>
+                          <td>{{demandante.3}}</td>
+                          <td>{{demandante.5}}</td>
+                          <td>{{demandante.4}}</td>
+                        </tr>
+                        {% empty %}
+                        <a style="color:red"><b>Nenhum Demandante encontrado</b></a>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+              </div>  
+              
+              <div> 
+                  <h3>Pessoas Agendadas</h3>
+                  
+                    <table class="table table-striped table-dark">
+                      <thead>
+                        <tr>
+                          <th>Nome</th>
+                          <th>Identidade</th>
+                          <th>CPF</th>
+                      </thead>
+                      <tbody>
+                        </tr>
+                        {% for dado in pessoas %}
+                        <tr>
+                          <td>{{dado.0}} </td>
+                          <td>{{dado.1}}</td>
+                          <td>{{dado.2}}</td>
+                        </tr>
+                        {% empty %}
+                        <a style="color:red"><b>Nenhuma pessoa agendada </b></a>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+              </div>
+
+              <div> 
+                  <h3>Prestadores Agendados</h3>
+                  
+                    <table class="table table-striped table-dark">
+                      <thead>
+                        <tr>
+                          <th>Nome</th>
+                          <th>Identidade</th>
+                          <th>CPF</th>
+                      </thead>
+                      <tbody>
+                        </tr>
+                        {% for dado in prestadores %}
+                        <tr>
+                          <td>{{dado.0}} </td>
+                          <td>{{dado.1}}</td>
+                          <td>{{dado.2}}</td>
+                        </tr>
+                        {% empty %}
+                        <a style="color:red"><b>Nenhum prestador agendado </b></a>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+              </div>
+
+              <div> 
+                  <h3>Prestadores Agendados</h3>
+                  
+                    <table class="table table-striped table-dark">
+                      <thead>
+                        <tr>
+                          <th>Placa</th>
+                          <th>Marca</th>
+                          <th>Modelo</th>
+                          <th>Cor</th>
+                      </thead>
+                      <tbody>
+                        </tr>
+                        {% for dado in veiculos %}
+                        <tr>
+                          <td>{{dado.0}} </td>
+                          <td>{{dado.1}}</td>
+                          <td>{{dado.2}}</td>
+                        </tr>
+                        {% empty %}
+                        <a style="color:red"><b>Nenhum veículo agendado </b></a>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                     
+                      <button
+                        data-mdb-button-init
+                        data-mdb-ripple-init
+                        class="btn btn-outline-light btn-lg px-5"
+                        type="submit"
+                        name="ir_para"
+                        value="{{logado}}"
+                      >
+                        Confirmar Agenda
+                      </button>
+              </div>
+              <br>
+              <br>
+
+              <div>
+                <form action="{%  url 'opcao_agendas' %}" method="post">
+                  {% csrf_token %}
+                  <button
+                    data-mdb-button-init
+                    data-mdb-ripple-init
+                    class="btn btn-outline-light btn-lg px-5"
+                    type="submit"
+                    name="ir_para"
+                    value="{{logado}}"
+                    >
+                    Voltar
+                  </button>
+                 </form>
+              </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+{% endblock %} 

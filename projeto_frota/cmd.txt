@@ -44,8 +44,74 @@ pythom manage.py shell
 #pesquisar no prompt#
 python manage.py shell 
 from app_frota.models import Empenho  
+
+https://youtu.be/mBqfY_TX_8o <<<IA
+################################### Value ################################### 
+# de uma list parqa html
+<td valign="middle"> {{resultado.0}} - {{resultado.1}} - {{resultado.2}}- {{resultado.3}} </td> 
+#            
+resultados = Agenda.objects.all()  # .values_list()
+<h1>{{resultado|default:'Fall'}}</h1>
+Entry.objects.all()[:5]
+# enviar mais  de um dados html
+ <input type="hidden" name="agenda" value="prestadores" />
+ <input type="hidden" name="pessoa" value="nome" />
+
+
+
+
+
+def agendas(request):
+    logado = request.POST.get('ir_para')
+    agenda = request.POST.get('agenda')
+    if request.method != "POST":
+        return render(request, "cadastro/opcao_agendas.html", logado)
+    if agenda == 'demandante':
+        resultados = Agenda.objects.all()  # .values_list()
+
+    pesquisa = {
+        'resultados': resultados, 'logado': str(logado),
+    }
+    return render(request, "cadastro/pag_teste.html", pesquisa)
+
+
+
+#pagina teste
+<table class="table table-striped table-dark table text-center" style="width:100%">
+<thead>
+    <tr>
+    <th>Número</th>
+    <th>-------</th>
+    <th>Empenho?</th>
+ </thead>
+    <tbody>
+    </tr>
+
+    {% for resultado in resultados %}
+        <tr>
+            <td valign="middle"> {{resultados[0][0]}}  </td> 
+            <td valign="middle"> {{resultado.id_agenda}}  </td> 
+            <td valign="middle"> {{ resultado.demandante_orgao}} </td>
+            <td valign="middle"> 
+            <input type="hidden" name="placa" value="teset">
+                <button data-mdb-button-init data-mdb-ripple-init 
+                    class="btn btn-outline-light btn-lg px-2" 
+                     type="None" 
+                     name="ir_para"
+                     value="{{logado}}"
+                    form="empenho"
+                >
+                    Empenhar
+                </button></td>
+        </tr>
+        {% empty %}
+            <a>Nenhum veículo encontrado</a>
+        {% endfor %}
+
+    </tbody>
+</table> 
  
-######################
+###################### $ ################################
     if request.method == "POST":
         user_nr = request.POST['user_nr']
         passoword = request.POST['passoword']

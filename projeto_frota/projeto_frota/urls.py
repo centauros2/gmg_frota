@@ -6,6 +6,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
+app_name = 'app_frota'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     # rota, view responsável, nome referência
@@ -24,6 +26,7 @@ urlpatterns = [
     path('cadastro_new/', views.cadastro_new, name='cadastro_new'),
     path('opcao_car_user/', views.opcao_car_user, name='opcao_car_user'),
     path('opcao_relatorios/', views.opcao_relatorios, name='opcao_relatorios'),
+    path('opcao_agendas/', views.opcao_agendas, name='opcao_agendas'),
     path('relatorio_user/', views.relatorio_user, name='relatorio_user'),
     path('relatorio_car/', views.relatorio_car, name='relatorio_car'),
     path('relatorio_empenho/', views.relatorio_empenho, name='relatorio_empenho'),
@@ -41,5 +44,6 @@ urlpatterns = [
          name='relatorio_motorista'),
     path('relatorio_car_empenho/', views.relatorio_car_empenho,
          name='relatorio_car_empenho'),
-
+    path('agendas/', views.agendas, name='agendas'),
+    path('resultado_agenda/', views.resultado_agenda, name='resultado_agenda'),
 ]
